@@ -5,6 +5,7 @@
 class Node
 {
 public:
+    Node():value(""){}
     Node(std::string data):value(data){}
     std::string value;
 };

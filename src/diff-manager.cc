@@ -1,6 +1,6 @@
 #include "diff-manager.hh"
 
-DiffManager::DiffManager(std::string fileSource, std::string fileDest, Algo algorithm)
+DiffManager::DiffManager(string fileSource, string fileDest, Algo algorithm)
 {
     algorithm = algorithm;
 }
@@ -15,51 +15,51 @@ DiffManager::DiffManager(int paramCount, const char **programArgs)
 {
     if (paramCount < 3)
     {
-        std::cout << "Invalid parameters.\n./app <sourcefile> <destfile> 'B|L'" << std::endl;
+        cout << "Invalid parameters.\n./app <sourcefile> <destfile> 'B|L'" << endl;
     }
     else
     {
         for (int i = 0; i < paramCount; i++)
         {
-            std::cout << programArgs[i] << std::endl;
+            cout << programArgs[i] << endl;
         }
         fstream sourceFile,compareFile;
         sourceFile.open(programArgs[0]);
         compareFile.open(programArgs[1]);
         if(!sourceFile.is_open()){
-            std::cout<<"Source file couldn't open!"<<std::endl;
+            cout<<"Source file couldn't open!"<<endl;
             return;
         }
         if(!compareFile.is_open()){
-            std::cout<<"Compare file couldn't open!"<<std::endl;
+            cout<<"Compare file couldn't open!"<<endl;
             return;
         }
         LoadDataIntoMemory(sourceFile,sourceData);
         LoadDataIntoMemory(compareFile,compareData);
         sourceFile.close();
-        compareData.close();
+        compareFile.close();
         
 
     }
 }
 
-void DiffManager::LoadDataIntoMemory(std::fstream source,vector<Node>*refData){
+void DiffManager::LoadDataIntoMemory(fstream& source,unique_ptr<vector<Node>>& refData){
     string line;
-    while(source.getline(line)){
+    while(getline(source,line)){
         refData->push_back(Node(line));
     }
 }
 
 Search DiffManager::AlgorithmFactory(Algo algorithm){
-    std::cout<< "Algorithm factory"<<std::endl;
+    cout<< "Algorithm factory"<<endl;
     return Search();
 }
 
 void DiffManager::StartComparison()
 {
-    std::cout << "Comparison started" << std::endl;
+    cout << "Comparison started" << endl;
 }
 
 void DiffManager::PrintPerformanceBenchmarks(){
-    std::cout << "Performance metrics" << std::endl;
+    cout << "Performance metrics" << endl;
 }
