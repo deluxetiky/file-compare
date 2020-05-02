@@ -11,11 +11,11 @@ class Search
 {
 public:
     Search();
-    Search(vector<Node> data);
-    virtual void AddItem(Node item);
+    Search(vector<Node>& data);    
     virtual bool Exist(std::string key);
     virtual Node Find(std::string key);
 private:
+    virtual void AddItem(Node item);
     vector<Node> data;
 };
 

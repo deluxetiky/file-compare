@@ -2,7 +2,7 @@
 
 
 
-Search::Search(vector<Node> data):data(data){}
+Search::Search(vector<Node>& data):data(data){}
 
 Search::Search(){}
 

@@ -21,8 +21,11 @@ public:
     DiffManager(std::string fileSource, std::string fileDest, Algo algorithm);
     DiffManager(int paramCount,const char**programArgs);
     void PrintPerformanceBenchmarks();
-
+    std::unique_ptr<std::vector<Node>> sourceFile = std::make_unique<std::vector<Node>>();
+    std::unique_ptr<std::vector<Node>> compFile = std::make_unique<std::vector<Node>>();
+    ~DiffManager();
 private:
+    Search compareAlgorithm;
     void StartComparison();
     Search createAlgorithm(std::istream &in,Algo algorithm);
 };

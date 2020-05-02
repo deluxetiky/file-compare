@@ -5,6 +5,12 @@ DiffManager::DiffManager(std::string fileSource, std::string fileDest, Algo algo
     algorithm = algorithm;
 }
 
+DiffManager::~DiffManager()
+{
+    sourceFile->clear();
+    compFile->clear();
+}
+
 DiffManager::DiffManager(int paramCount, const char **programArgs)
 {
     if (paramCount < 3)
@@ -16,8 +22,9 @@ DiffManager::DiffManager(int paramCount, const char **programArgs)
         for (int i = 0; i < paramCount; i++)
         {
             std::cout << programArgs[i] << std::endl;
-
         }
+
+
     }
 }
 
