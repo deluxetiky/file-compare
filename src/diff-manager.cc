@@ -34,15 +34,20 @@ DiffManager::DiffManager(int paramCount, const char **programArgs)
             std::cout<<"Compare file couldn't open!"<<std::endl;
             return;
         }
-        
-
+        LoadDataIntoMemory(sourceFile,sourceData);
+        LoadDataIntoMemory(compareFile,compareData);
+        sourceFile.close();
+        compareData.close();
         
 
     }
 }
 
-vector<Node> DiffManager::LoadDataIntoMemory(std::fstream source){
-    return vector<Node>();
+void DiffManager::LoadDataIntoMemory(std::fstream source,vector<Node>*refData){
+    string line;
+    while(source.getline(line)){
+        refData->push_back(Node(line));
+    }
 }
 
 Search DiffManager::AlgorithmFactory(Algo algorithm){
