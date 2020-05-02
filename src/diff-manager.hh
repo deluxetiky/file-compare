@@ -5,6 +5,8 @@
 #include <vector>
 #include <memory>
 #include <iostream>
+#include "search.hh"
+#include "node.hh"
 
 class DiffManager
 {
@@ -19,9 +21,10 @@ public:
     DiffManager(std::string fileSource, std::string fileDest, Algo algorithm);
     DiffManager(int paramCount,const char**programArgs);
     void PrintPerformanceBenchmarks();
+
 private:
     void StartComparison();
-
+    Search<Node> createAlgorithm(std::istream &in,Algo algorithm);
 };
 
 #endif

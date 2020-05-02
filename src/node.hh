@@ -4,7 +4,7 @@
 class Node{
     std::string data;
     
-}
+};
 
 
 #endif
