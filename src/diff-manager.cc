@@ -7,8 +7,8 @@ DiffManager::DiffManager(std::string fileSource, std::string fileDest, Algo algo
 
 DiffManager::~DiffManager()
 {
-    sourceFile->clear();
-    compFile->clear();
+    sourceData->clear();
+    compareData->clear();
 }
 
 DiffManager::DiffManager(int paramCount, const char **programArgs)
@@ -23,12 +23,29 @@ DiffManager::DiffManager(int paramCount, const char **programArgs)
         {
             std::cout << programArgs[i] << std::endl;
         }
+        fstream sourceFile,compareFile;
+        sourceFile.open(programArgs[0]);
+        compareFile.open(programArgs[1]);
+        if(!sourceFile.is_open()){
+            std::cout<<"Source file couldn't open!"<<std::endl;
+            return;
+        }
+        if(!compareFile.is_open()){
+            std::cout<<"Compare file couldn't open!"<<std::endl;
+            return;
+        }
+        
 
+        
 
     }
 }
 
-Search DiffManager::createAlgorithm(std::istream &in ,Algo algorithm){
+vector<Node> DiffManager::LoadDataIntoMemory(std::fstream source){
+    return vector<Node>();
+}
+
+Search DiffManager::AlgorithmFactory(Algo algorithm){
     std::cout<< "Algorithm factory"<<std::endl;
     return Search();
 }

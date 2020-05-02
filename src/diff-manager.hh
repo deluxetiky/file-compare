@@ -7,6 +7,7 @@
 #include <iostream>
 #include "search.hh"
 #include "node.hh"
+#include <fstream>
 
 class DiffManager
 {
@@ -20,14 +21,16 @@ public:
     const Algo algorithm = BINARYSEARCH; //Default selected algorithm
     DiffManager(std::string fileSource, std::string fileDest, Algo algorithm);
     DiffManager(int paramCount,const char**programArgs);
+    vector<Node> LoadDataIntoMemory(std::fstream source); 
     void PrintPerformanceBenchmarks();
-    std::unique_ptr<std::vector<Node>> sourceFile = std::make_unique<std::vector<Node>>();
-    std::unique_ptr<std::vector<Node>> compFile = std::make_unique<std::vector<Node>>();
+    std::unique_ptr<std::vector<Node>> sourceData = std::make_unique<std::vector<Node>>();
+    std::unique_ptr<std::vector<Node>> compareData = std::make_unique<std::vector<Node>>();
     ~DiffManager();
 private:
     Search compareAlgorithm;
     void StartComparison();
-    Search createAlgorithm(std::istream &in,Algo algorithm);
+    
+    Search AlgorithmFactory(Algo algorithm);
 };
 
 #endif
