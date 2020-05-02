@@ -10,7 +10,7 @@ DiffManager::DiffManager(int paramCount, const char **programArgs)
     if (paramCount < 3)
     {
         std::cout << "Invalid parameters.\n./app <sourcefile> <destfile> 'B|L'" << std::endl;
-    }       
+    }
     else
     {
         for (int i = 0; i < paramCount; i++)
