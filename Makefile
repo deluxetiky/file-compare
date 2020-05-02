@@ -1,6 +1,6 @@
 # project name which will be used as a name of the resulting executable
 PROJECT := diff
-
+TEST_PARAMS ?= "./sample-data/src1.lst" "./sample-data/src2.lst"
 SRCEXT := .cc
 HEXT := .hh
 # some common directories
