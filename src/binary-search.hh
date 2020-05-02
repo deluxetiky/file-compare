@@ -4,12 +4,13 @@
 #include "search.hh"
 #include "node.hh"
 
-// class BinarySearch : Search<Node>{
+// template<class T>
+// class BinarySearch : Search<T>{
 
-//     // public:
-//     //     void AddItem(Node item) override;
-//     //     bool Exist(std::string key) override;
-//     //     vector<Node> Find(std::string key) override;
+//     public:
+//         void AddItem(Node item);
+//         bool Exist(std::string key);
+//         vector<Node> Find(std::string key);
 // }
 
 #endif

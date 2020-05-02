@@ -8,17 +8,16 @@
 
 using namespace std;
 
-template<class T>
 class Search
 {
 public:
     Search();
-    Search(vector<T> data);
-    virtual void AddItem(T item);
+    Search(vector<Node> data);
+    virtual void AddItem(Node item);
     virtual bool Exist(std::string key);
-    virtual T Find(std::string key);
+    virtual Node Find(std::string key);
 private:
-    vector<T> data;
+    vector<Node> data;
 };
 
 #endif

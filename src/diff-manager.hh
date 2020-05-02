@@ -24,7 +24,7 @@ public:
 
 private:
     void StartComparison();
-    Search<Node> createAlgorithm(std::istream &in,Algo algorithm);
+    Search createAlgorithm(std::istream &in,Algo algorithm);
 };
 
 #endif

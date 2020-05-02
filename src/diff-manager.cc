@@ -21,9 +21,9 @@ DiffManager::DiffManager(int paramCount, const char **programArgs)
     }
 }
 
-Search<Node> DiffManager::createAlgorithm(std::istream &in ,Algo algorithm){
+Search DiffManager::createAlgorithm(std::istream &in ,Algo algorithm){
     std::cout<< "Algorithm factory"<<std::endl;
-    
+    return Search();
 }
 
 void DiffManager::StartComparison()
