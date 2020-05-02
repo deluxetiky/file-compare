@@ -24,3 +24,7 @@ void DiffManager::StartComparison()
 {
     std::cout << "Comparison started" << std::endl;
 }
+
+void DiffManager::PrintPerformanceBenchmarks(){
+    std::cout << "Performance metrics" << std::endl;
+}
