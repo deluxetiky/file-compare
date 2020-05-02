@@ -3,16 +3,20 @@
 
 #include <vector>
 #include <iostream>
+#include "binary-search.hh"
+#include "node.hh"
 
 using namespace std;
 
-template <class T>
+template<class T>
 class Search
 {
 public:
-    virtual void AddItem(T data);
+    Search();
+    Search(vector<T> data);
+    virtual void AddItem(T item);
     virtual bool Exist(std::string key);
-    virtual vector<T> Find(std::string key);
+    virtual T Find(std::string key);
 private:
     vector<T> data;
 };
