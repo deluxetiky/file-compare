@@ -15,9 +15,9 @@ public:
         BINARYSEARCH,
         LINEARSEARCH
     };
-    const Algo algorithm = BINARYSEARCH; //Default Value
+    const Algo algorithm = BINARYSEARCH; //Default selected algorithm
     DiffManager(std::string fileSource, std::string fileDest, Algo algorithm);
-    DiffManager(const char**programArgs);
+    DiffManager(int paramCount,const char**programArgs);
     void StartComparison();
 private:
     
