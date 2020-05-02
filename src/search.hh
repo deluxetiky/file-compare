@@ -3,7 +3,6 @@
 
 #include <vector>
 #include <iostream>
-#include "binary-search.hh"
 #include "node.hh"
 
 using namespace std;
