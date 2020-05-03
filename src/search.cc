@@ -2,7 +2,8 @@
 
 
 
-Search::Search(std::unique_ptr<vector<Node>>& refData){
+Search::Search(vector<Node>& refData){
+    data = refData;
 }
 
 Search::Search(){}

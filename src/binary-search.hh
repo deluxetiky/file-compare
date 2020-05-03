@@ -6,11 +6,12 @@
 #include "node.hh"
 #include <vector>
 #include <iostream>
+#include <algorithm>
 
 class BinarySearch : public Search {
     
     public:
-        BinarySearch(std::unique_ptr<vector<Node>>& data);
+        BinarySearch(vector<Node>& data);
     
 };
 

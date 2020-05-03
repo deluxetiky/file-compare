@@ -12,11 +12,11 @@ class Search
 {
 public:
     Search();
-    Search(std::unique_ptr<vector<Node>>& data);  
+    Search(vector<Node>& refData);
     virtual bool Exist(string key);
     virtual Node Find(string key);
 protected:
-    std::unique_ptr<vector<Node>> data;
+    vector<Node> data;
 };
 
 #endif
