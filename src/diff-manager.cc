@@ -2,6 +2,10 @@
 
 DiffManager::DiffManager(string fileSourcePath, string fileToComparePath, Algo algo)
 {
+    Load(fileSourcePath, fileToComparePath, algo);
+}
+
+void DiffManager::Load(string fileSourcePath, string fileToComparePath, Algo algorithm){
     fstream sourceFile, compareFile;
     sourceFile.open(fileSourcePath);
     compareFile.open(fileToComparePath);
@@ -20,8 +24,13 @@ DiffManager::DiffManager(string fileSourcePath, string fileToComparePath, Algo a
     LoadDataIntoMemory(compareFile, compareData);
     sourceFile.close();
     compareFile.close();
-}
+    isDataLoaded = true;
 
+    sort(sourceData->begin(),sourceData->end());
+    sort(compareData->begin(),compareData->end());
+
+    compareAlgorithm  = AlgorithmFactory(algorithm);
+}
 
 
 DiffManager::~DiffManager()
@@ -42,14 +51,14 @@ DiffManager::DiffManager(int paramCount, const char **programArgs)
         {
             cout << programArgs[i] << endl;
         }
-        char algoParam = programArgs[2][0];
+        char algoParam = programArgs[3][0];
 
         if (algoParam == 'B')
-            DiffManager(programArgs[1], programArgs[2],BINARYSEARCH);
+            Load(programArgs[1], programArgs[2],Algo::BINARYSEARCH);
         else if (algoParam == 'L')
-            DiffManager(programArgs[1], programArgs[2],LINEARSEARCH);
+            Load(programArgs[1], programArgs[2],Algo::LINEARSEARCH);
         else
-            DiffManager(programArgs[1], programArgs[2],algorithm);
+            Load(programArgs[1], programArgs[2],Algo::BINARYSEARCH);
     }
 }
 
@@ -65,7 +74,24 @@ void DiffManager::LoadDataIntoMemory(fstream &source, unique_ptr<vector<Node>> &
 Search DiffManager::AlgorithmFactory(Algo algorithm)
 {
     cout << "Algorithm factory" << endl;
-    return Search();
+    Search runtimeSearch;
+    switch (algorithm)
+    {
+    case BINARYSEARCH:
+        runtimeSearch= BinarySearch();
+        break;
+    case LINEARSEARCH:
+        runtimeSearch= LinearSearch();
+        break;
+    default:
+        runtimeSearch= LinearSearch();
+        break;
+    }
+    return runtimeSearch;
+}
+
+bool DiffManager::Ready(){
+    return isDataLoaded;
 }
 
 void DiffManager::StartComparison()

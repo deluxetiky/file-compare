@@ -4,7 +4,10 @@
 #include "search.hh"
 
 class BinarySearch : public Search {
-    
+    public:
+        BinarySearch():Search(){
+            cout<<"BinarySearch algorithm is setting up..."<<endl;
+        }
     
 };
 

@@ -2,11 +2,15 @@
 #define _NODE_HH_
 
 #include <string>
+#include <functional>
 class Node
 {
 public:
-    Node():value(""){}
-    Node(std::string data):value(data){}
+    Node():value(""){
+
+    }
+    Node(std::string& data):value(data){
+    }
     std::string value;
 };
 
