@@ -26,9 +26,7 @@ void DiffManager::Load(string fileSourcePath, string fileToComparePath, Algo alg
     compareFile.close();
     isDataLoaded = true;
 
-    sort(sourceData->begin(),sourceData->end());
-    sort(compareData->begin(),compareData->end());
-
+   
     compareAlgorithm  = AlgorithmFactory(algorithm);
 }
 
@@ -78,13 +76,13 @@ Search DiffManager::AlgorithmFactory(Algo algorithm)
     switch (algorithm)
     {
     case BINARYSEARCH:
-        runtimeSearch= BinarySearch();
+        runtimeSearch= BinarySearch(compareData);
         break;
     case LINEARSEARCH:
         runtimeSearch= LinearSearch();
         break;
     default:
-        runtimeSearch= LinearSearch();
+        runtimeSearch= BinarySearch(compareData);
         break;
     }
     return runtimeSearch;

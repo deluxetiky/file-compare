@@ -2,13 +2,10 @@
 
 
 
-Search::Search(vector<Node>& data):data(data){}
+Search::Search(std::unique_ptr<vector<Node>>& refData){
+}
 
 Search::Search(){}
-
-
-void Search::AddItem(Node item){}
-
 
 Node Search::Find(std::string key){return Node();}
 
