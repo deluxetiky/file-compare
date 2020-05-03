@@ -16,7 +16,6 @@ public:
     Search(vector<Node>& refData);
     virtual bool Exist(Node& item);
     void PrintData();
-    int getOperationCount();
 protected:
     vector<Node> data;
 };

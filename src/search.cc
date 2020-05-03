@@ -23,6 +23,3 @@ void Search::PrintData(){
     cout<<"\n\n";
 }
 
-int Search::getOperationCount(){
-    return operationCount;
-}

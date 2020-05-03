@@ -112,6 +112,6 @@ void DiffManager::PrintPerformanceBenchmarks()
     for(Node& node : sourceData){
         metrics.MergeMetrics(node);
     }
-    // metrics.MergeMetrics(compareAlgorithm);
+    metrics.IncrementOp(compareAlgorithm->GetOpCount());
     metrics.PrintPerformanceMetrics();
 }
