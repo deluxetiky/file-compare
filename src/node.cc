@@ -14,7 +14,7 @@ bool Node::operator<(const Node &node) const
 
 
 
-bool Node::operator()(const Node& first, const Node& second){
-    IncrementOp(1);
-    return first.value<second.value;
-}
+// bool Node::operator()(const Node& first, const Node& second){
+//     IncrementOp(1);
+//     return first.value<second.value;
+// }
