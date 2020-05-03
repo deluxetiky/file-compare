@@ -7,7 +7,7 @@ DiffManager::DiffManager(string fileSourcePath, string fileToComparePath, Algo a
 
 void DiffManager::Load(string fileSourcePath, string fileToComparePath, Algo algorithm)
 {
-
+    metrics = PerfMetric(printBuffer);
     sourceFile.open(fileSourcePath);
     compareFile.open(fileToComparePath);
 
@@ -101,5 +101,12 @@ void DiffManager::StartComparison()
 
 void DiffManager::PrintPerformanceBenchmarks()
 {
-    PrintPerformanceMetrics();
+    for(Node& node : compareData){
+        metrics.MergeMetrics(node);
+    }
+    for(Node& node : sourceData){
+        metrics.MergeMetrics(node);
+    }
+    metrics.MergeMetrics(compareAlgorithm);
+    metrics.PrintPerformanceMetrics();
 }
