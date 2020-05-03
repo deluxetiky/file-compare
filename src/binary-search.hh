@@ -14,7 +14,7 @@ class BinarySearch : public Search {
     
     public:
         BinarySearch(vector<Node>& data);
-        bool Exist(Node& item);
+        virtual bool Exist(Node& item) override;
     
 };
 

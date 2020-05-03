@@ -46,3 +46,4 @@ void PerfMetric::MergeMetrics(PerfMetric &metrics)
     operationCount += metrics.operationCount;
     space += metrics.space;
 }
+

@@ -69,20 +69,20 @@ void DiffManager::LoadDataIntoMemory(fstream &source, vector<Node> &refData)
     }
 }
 
-Search DiffManager::AlgorithmFactory(Algo algorithm)
+unique_ptr<Search> DiffManager::AlgorithmFactory(Algo algorithm)
 {
     cout << "Algorithm factory" << endl;
-    Search runtimeSearch;
+    unique_ptr<Search> runtimeSearch;
     switch (algorithm)
     {
     case BINARYSEARCH:
-        runtimeSearch = BinarySearch(compareData);
+        runtimeSearch = make_unique<BinarySearch>(compareData);
         break;
     case LINEARSEARCH:
-        runtimeSearch = LinearSearch();
+        runtimeSearch = make_unique<LinearSearch>();
         break;
     default:
-        runtimeSearch = BinarySearch(compareData);
+        runtimeSearch = make_unique<BinarySearch>(compareData);
         break;
     }
     return runtimeSearch;
@@ -96,6 +96,11 @@ bool DiffManager::Ready()
 void DiffManager::StartComparison()
 {
     cout << "Comparison started" << endl;
+    for(Node& record:sourceData){
+        if(compareAlgorithm->Exist(record)){
+            cout<<"Found in destionation "<<record << endl;
+        }
+    }
     // compareAlgorithm.Exist(std::string("s1"));
 }
 
@@ -107,6 +112,6 @@ void DiffManager::PrintPerformanceBenchmarks()
     for(Node& node : sourceData){
         metrics.MergeMetrics(node);
     }
-    metrics.MergeMetrics(compareAlgorithm);
+    // metrics.MergeMetrics(compareAlgorithm);
     metrics.PrintPerformanceMetrics();
 }

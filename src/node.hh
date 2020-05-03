@@ -13,8 +13,8 @@ public:
     Node(std::string &data) : value(data){}
     std::string value;
     
-    // bool operator<(Node &node);
     bool operator<(const Node &node) const;
+    // bool operator<(const Node &node);
     bool operator()(const Node& first, const Node& second);
     friend std::ostream & operator << (std::ostream &out, const Node &c);
 };

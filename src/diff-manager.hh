@@ -34,11 +34,11 @@ public:
     ~DiffManager();
 private:
     bool isDataLoaded;
-    Search compareAlgorithm;  
+    unique_ptr<Search> compareAlgorithm;  
     fstream sourceFile, compareFile;
     void Load(string fileSource, string fileDest, Algo algorithm);  
     void LoadDataIntoMemory(fstream& source,vector<Node>& refData); 
-    Search AlgorithmFactory(Algo algorithm);
+    unique_ptr<Search> AlgorithmFactory(Algo algorithm);
     PerfMetric metrics;
     char printBuffer[50];    
 };

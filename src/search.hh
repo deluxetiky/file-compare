@@ -14,7 +14,7 @@ class Search : public PerfMetric
 public:
     Search();
     Search(vector<Node>& refData);
-    virtual bool Exist(string key);
+    virtual bool Exist(Node& item);
     void PrintData();
     int getOperationCount();
 protected:

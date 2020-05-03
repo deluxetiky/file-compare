@@ -9,7 +9,10 @@ Search::Search(vector<Node>& refData){
 Search::Search(){}
 
 
-bool Search::Exist(std::string key){return false;}
+bool Search::Exist(Node& item){
+    return false;
+}
+
 
 void Search::PrintData(){
     cout<<"##### Data ######\n";

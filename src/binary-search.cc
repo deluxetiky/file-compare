@@ -11,7 +11,7 @@ BinarySearch::BinarySearch(vector<Node> &source) : Search(source)
 }
 
 
-bool BinarySearch::Exist(Node& item){
-    return std::binary_search(data.begin(),data.end(),item);
-    // return true;
+bool BinarySearch::Exist(Node& item) {
+    bool result = std::binary_search(data.begin(),data.end(),item);
+    return result;
 }
