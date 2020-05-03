@@ -36,6 +36,10 @@ void PerfMetric::IncrementOp(int size)
     operationCount += size;
 }
 
+int PerfMetric::GetOpCount(){
+    return operationCount;
+}
+
 void PerfMetric::MergeMetrics(PerfMetric &metrics)
 {
     compareCount += metrics.compareCount;

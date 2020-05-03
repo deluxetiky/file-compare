@@ -12,6 +12,7 @@ class PerfMetric{
         PerfMetric(char* printBuffer);      
         void PrintPerformanceMetrics();  
         void IncrementOp(int size);
+        int GetOpCount();
         void MergeMetrics(PerfMetric& metrics);
     protected:
         char* printBuffer;

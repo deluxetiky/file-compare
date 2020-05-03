@@ -96,7 +96,7 @@ bool DiffManager::Ready()
 void DiffManager::StartComparison()
 {
     cout << "Comparison started" << endl;
-    
+    // compareAlgorithm.Exist(std::string("s1"));
 }
 
 void DiffManager::PrintPerformanceBenchmarks()
