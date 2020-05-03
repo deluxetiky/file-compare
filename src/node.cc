@@ -8,7 +8,8 @@ std::ostream &operator<<(std::ostream &out, const Node &c)
 
 
 
-bool Node::operator<(const Node &node) const
+bool Node::operator<(Node &node)
 {
+    IncrementOp(1);
     return (value < node.value);
 }

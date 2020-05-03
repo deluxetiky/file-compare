@@ -79,7 +79,7 @@ unique_ptr<Search> DiffManager::AlgorithmFactory(Algo algorithm)
         runtimeSearch = make_unique<BinarySearch>(compareData);
         break;
     case LINEARSEARCH:
-        runtimeSearch = make_unique<LinearSearch>();
+        runtimeSearch = make_unique<LinearSearch>(compareData);
         break;
     default:
         runtimeSearch = make_unique<BinarySearch>(compareData);
@@ -101,17 +101,10 @@ void DiffManager::StartComparison()
             cout<<"Found in destionation "<<record << endl;
         }
     }
-    // compareAlgorithm.Exist(std::string("s1"));
 }
 
 void DiffManager::PrintPerformanceBenchmarks()
 {
-    for(Node& node : compareData){
-        metrics.MergeMetrics(node);
-    }
-    for(Node& node : sourceData){
-        metrics.MergeMetrics(node);
-    }
     metrics.IncrementOp(compareAlgorithm->GetOpCount());
     metrics.PrintPerformanceMetrics();
 }
