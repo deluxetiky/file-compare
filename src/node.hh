@@ -6,17 +6,22 @@
 class Node
 {
 public:
-    Node():value(""){
-
+    Node() : value("")
+    {
     }
-    Node(std::string& data):value(data){
+    Node(std::string &data) : value(data)
+    {
     }
     std::string value;
 
-    bool operator < (const Node& str) const
+    bool operator<(const Node &str) const
     {
         return (value < str.value);
     }
+
+    friend std::ostream & operator << (std::ostream &out, const Node &c);
 };
+
+
 
 #endif

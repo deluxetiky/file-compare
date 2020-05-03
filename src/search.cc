@@ -15,7 +15,7 @@ bool Search::Exist(std::string key){return false;}
 void Search::PrintData(){
     cout<<"##### Data ######\n";
       for(int i=0;i<data.size();i++){
-        cout<< data.at(i).value << endl;
+        cout<< data.at(i) << endl;
     }
     cout<<"\n\n";
 }

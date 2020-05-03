@@ -21,11 +21,7 @@ void DiffManager::Load(string fileSourcePath, string fileToComparePath, Algo alg
         return;
     }
     LoadDataIntoMemory(sourceFile, sourceData);
-    LoadDataIntoMemory(compareFile, compareData);
-    //  for(int i=0;i<compareData->size();i++){
-    //     cout<< compareData->at(i).value << endl;
-    // }
-    
+    LoadDataIntoMemory(compareFile, compareData);    
     isDataLoaded = true;
 
    
@@ -100,6 +96,10 @@ bool DiffManager::Ready(){
 void DiffManager::StartComparison()
 {
     cout << "Comparison started" << endl;
+    for (auto & record : sourceData) {
+        cout << record << endl;
+}
+
 }
 
 void DiffManager::PrintPerformanceBenchmarks()
