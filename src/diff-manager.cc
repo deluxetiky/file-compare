@@ -104,5 +104,8 @@ void DiffManager::StartComparison()
 
 void DiffManager::PrintPerformanceBenchmarks()
 {
-    cout << "Performance metrics" << endl;
+    sprintf(printBuffer,"%8s\n","Op Count");
+    cout << printBuffer;
+    sprintf(printBuffer,"%8d\n",compareAlgorithm.getOperationCount());
+    cout << printBuffer;
 }

@@ -15,7 +15,10 @@ public:
     Search(vector<Node>& refData);
     virtual bool Exist(string key);
     virtual Node Find(string key);
+    void PrintData();
+    int getOperationCount();
 protected:
+    int operationCount;
     vector<Node> data;
 };
 
