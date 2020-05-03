@@ -5,10 +5,11 @@
 #include <iostream>
 #include "node.hh"
 #include <memory>
+#include "perf-metric.hh"
 
 using namespace std;
 
-class Search
+class Search : public PerfMetric
 {
 public:
     Search();
@@ -18,7 +19,6 @@ public:
     void PrintData();
     int getOperationCount();
 protected:
-    int operationCount;
     vector<Node> data;
 };
 

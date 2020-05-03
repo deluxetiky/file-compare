@@ -11,9 +11,11 @@
 #include "binary-search.hh"
 #include "linear-search.hh"
 #include <stdio.h>
+#include "perf-metric.hh"
 
 using namespace std;
-class DiffManager
+
+class DiffManager : public PerfMetric
 {
 
 public:
@@ -37,7 +39,7 @@ private:
     void Load(string fileSource, string fileDest, Algo algorithm);  
     void LoadDataIntoMemory(fstream& source,vector<Node>& refData); 
     Search AlgorithmFactory(Algo algorithm);
-    char printBuffer [50];
+    
 };
 
 #endif
