@@ -7,6 +7,8 @@ PerfMetric::PerfMetric()
     space = 0;
     sourceDomainSize = 0;
     compareDomainSize = 0;
+    foundSize=0;
+    notFoundSize=0;
 }
 
 PerfMetric::PerfMetric(char *buffer)
@@ -16,6 +18,8 @@ PerfMetric::PerfMetric(char *buffer)
     space = 0;
     sourceDomainSize = 0;
     compareDomainSize = 0;
+    foundSize=0;
+    notFoundSize=0;
     printBuffer = buffer;
 }
 
@@ -34,12 +38,12 @@ void PerfMetric::PrintPerformanceMetrics()
     }
 }
 
-void PerfMetric::SetInputCount(int sourceSize, int compareSize,int foundSize,int notFoundSize)
+void PerfMetric::SetInputCount(int sourceSize, int compareSize,int fndSize,int notFndSize)
 {
     sourceDomainSize = sourceSize;
     compareDomainSize = compareSize;
-    foundSize = foundSize;
-    notFoundSize = notFoundSize;
+    foundSize = fndSize;
+    notFoundSize = notFndSize;
 }
 
 void PerfMetric::IncrementOp(int size)
