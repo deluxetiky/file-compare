@@ -27,10 +27,11 @@ void PerfMetric::PrintPerformanceMetrics()
 {
     if (printBuffer == NULL)
     {
-        cout << "Printing is not available for this instance!" << endl;
+        cout << "\n\nPrinting is not available for this instance!" << endl;
     }
     else
     {
+        cout << "\n\n#### Performance Result #####\n\n";
         sprintf(printBuffer, "%9s   %10s   %8s   %20s  %13s  %18s\n", "N (A Src)", "N (B Dest)", "Op Count", "Time (Micro Seconds)","( A∩B ) Found","( A\\B ) Not Found");
         cout << printBuffer;
         sprintf(printBuffer, "%9d   %10d   %8d   %20d  %13d  %18d\n", sourceDomainSize, compareDomainSize, operationCount, elapsedMicroSeconds,foundSize,notFoundSize);
