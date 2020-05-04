@@ -6,8 +6,7 @@
 class LinearSearch : public Search {
      public:
         LinearSearch(vector<Node>& data);
-    
-    
+        virtual bool Exist(Node& item) override;
 };
 
 #endif
