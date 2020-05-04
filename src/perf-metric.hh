@@ -14,10 +14,12 @@ class PerfMetric{
         void IncrementOp(int size);
         int GetOpCount();
         void MergeMetrics(PerfMetric& metrics);
+        void SetTime(unsigned int timeinMS);
     protected:
         char* printBuffer;
         int operationCount;
         int compareCount;
         int space;
+        unsigned int elapsedMicroSeconds;
 };
 #endif

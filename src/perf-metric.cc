@@ -23,9 +23,9 @@ void PerfMetric::PrintPerformanceMetrics()
         cout << "Printing is not available for this instance!" << endl;
     }else
     {
-        sprintf(printBuffer, "%8s\n", "Op Count");
+        sprintf(printBuffer, "%8s %20s\n", "Op Count","Time (Micro Seconds)");
         cout << printBuffer;
-        sprintf(printBuffer, "%8d\n", operationCount);
+        sprintf(printBuffer, "%8d %20d\n", operationCount,elapsedMicroSeconds);
         cout << printBuffer;
     }   
    
@@ -45,5 +45,9 @@ void PerfMetric::MergeMetrics(PerfMetric &metrics)
     compareCount += metrics.compareCount;
     operationCount += metrics.operationCount;
     space += metrics.space;
+}
+
+void PerfMetric::SetTime(unsigned int time){
+    elapsedMicroSeconds = time;
 }
 

@@ -96,6 +96,7 @@ bool DiffManager::Ready()
 void DiffManager::StartComparison()
 {
     cout << "Comparison started" << endl;
+    auto start = chrono::steady_clock::now();
     for(Node& record:sourceData){
         if(compareAlgorithm->Exist(record)){
             foundList.push_back(record);
@@ -103,10 +104,13 @@ void DiffManager::StartComparison()
             notFoundList.push_back(record);
         }
     }
+    auto end = chrono::steady_clock::now();
+    microSeconds=chrono::duration_cast<chrono::microseconds>(end - start).count();
+    metrics.SetTime(microSeconds);
 }
 
 void DiffManager::PrintPerformanceBenchmarks()
 {
-    metrics.IncrementOp(compareAlgorithm->GetOpCount());
+    metrics.IncrementOp(compareAlgorithm->GetOpCount());    
     metrics.PrintPerformanceMetrics();
 }

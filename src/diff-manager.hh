@@ -12,6 +12,7 @@
 #include "linear-search.hh"
 #include <stdio.h>
 #include "perf-metric.hh"
+#include <chrono>
 
 using namespace std;
 
@@ -42,7 +43,8 @@ private:
     void LoadDataIntoMemory(fstream& source,vector<Node>& refData); 
     unique_ptr<Search> AlgorithmFactory(Algo algorithm);
     PerfMetric metrics;
-    char printBuffer[50];    
+    char printBuffer[50];   
+    unsigned int microSeconds; 
 };
 
 #endif
