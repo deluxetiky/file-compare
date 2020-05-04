@@ -71,17 +71,17 @@ void DiffManager::LoadDataIntoMemory(fstream &source, vector<Node> &refData)
 unique_ptr<Search> DiffManager::AlgorithmFactory(Algo algorithm)
 {
     cout << "Algorithm factory" << endl;
-    unique_ptr<Search> runtimeSearch;
+    std::unique_ptr<Search> runtimeSearch;
     switch (algorithm)
     {
     case BINARYSEARCH:
-        runtimeSearch = make_unique<BinarySearch>(compareData);
+        runtimeSearch = std::make_unique<BinarySearch>(compareData);
         break;
     case LINEARSEARCH:
-        runtimeSearch = make_unique<LinearSearch>(compareData);
+        runtimeSearch = std::make_unique<LinearSearch>(compareData);
         break;
     default:
-        runtimeSearch = make_unique<BinarySearch>(compareData);
+        runtimeSearch = std::make_unique<BinarySearch>(compareData);
         break;
     }
     return runtimeSearch;
