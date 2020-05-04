@@ -24,7 +24,6 @@ void DiffManager::Load(string fileSourcePath, string fileToComparePath, Algo alg
     LoadDataIntoMemory(sourceFile, sourceData);
     LoadDataIntoMemory(compareFile, compareData);
     isDataLoaded = true;
-
     compareAlgorithm = AlgorithmFactory(algorithm);
 }
 
@@ -111,6 +110,8 @@ void DiffManager::StartComparison()
 
 void DiffManager::PrintPerformanceBenchmarks()
 {
+    int sourceSize = sourceData.size();
+    metrics.SetInputCount(sourceData.size(),compareData.size(),foundList.size(),notFoundList.size());
     metrics.IncrementOp(compareAlgorithm->GetOpCount());    
     metrics.PrintPerformanceMetrics();
 }
