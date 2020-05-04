@@ -5,25 +5,23 @@ Default algorithm implementations are binary search and linear search algorithms
 
 ## Build
 
+`make clean all`
+
 ## Run
 
-## Example
+Binary Comparison
 
-> source-a.lst
+`./bin/diff './sample-data/src1.lst' './sample-data/src2.lst' 'B'`
 
-```source-a.lst
-sample-1
-sample-2
-sample-3
-sample-4
-```
+Linear Comparison
 
-```source-b.lst
-sample-1
-sample-4
-```
+`./bin/diff './sample-data/src1.lst' './sample-data/src2.lst' 'L'`
 
-`./diff sample-1.lst sample-2.lst ALGORITHM`
+or with make
+
+`TEST_PARAMS="'./sample-data/src1.lst' './sample-data/src2.lst' 'B'" make test`
+
+Reference Data File stored in [./sample-data](./sample-data)
+
 
 ## Performance
-
