@@ -7,9 +7,9 @@
 *.o
 *.obj
 *.o
-
+./src/obj/**
 *.exe
-
+./bin
 # Precompiled Headers
 *.gch
 *.pch
