@@ -50,9 +50,9 @@ DiffManager::DiffManager(int paramCount, const char **programArgs)
         }
         char algoParam = programArgs[3][0];
 
-        if (algoParam == 'B')
+        if (algoParam == 'B' || algoParam == 'b')
             Load(programArgs[1], programArgs[2], Algo::BINARYSEARCH);
-        else if (algoParam == 'L')
+        else if (algoParam == 'L' || algoParam == 'l')
             Load(programArgs[1], programArgs[2], Algo::LINEARSEARCH);
         else
             Load(programArgs[1], programArgs[2], Algo::BINARYSEARCH);
@@ -98,7 +98,9 @@ void DiffManager::StartComparison()
     cout << "Comparison started" << endl;
     for(Node& record:sourceData){
         if(compareAlgorithm->Exist(record)){
-            cout<<"Found in destionation "<<record << endl;
+            foundList.push_back(record);
+        }else{
+            notFoundList.push_back(record);
         }
     }
 }

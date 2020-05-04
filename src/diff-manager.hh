@@ -31,6 +31,8 @@ public:
     bool Ready();
     vector<Node> sourceData;
     vector<Node> compareData;
+    vector<Node> foundList;
+    vector<Node> notFoundList;
     ~DiffManager();
 private:
     bool isDataLoaded;
